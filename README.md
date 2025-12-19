@@ -1,115 +1,117 @@
-# Stock Sentiment Learning Project
+# Stock Sentiment Learning
 
-This repository is a hands-on learning project designed to build practical skills in:
-- Git and GitHub workflows
+This repository is a structured learning project focused on building practical skills in Python, Git, and data workflows using stock market data as the working example.
+
+The goal is not to build a production system, but to understand how real-world projects are organized, developed, and iterated on in a clean and reproducible way.
+
+---
+
+## Project Goals
+
+This project is designed to help practice and understand:
+
+- Git and GitHub fundamentals
+- Repository structure and organization
 - Python scripting
 - Virtual environments
-- Data fetching and analysis
-- Foundations for stock sentiment analysis
+- Dependency management
+- Fetching and storing external data
+- Preparing for future sentiment analysis work
 
-The project progresses incrementally, with each script serving a clear purpose in a simple data pipeline.
+Each step builds incrementally on the previous one.
 
 ---
 
 ## Repository Structure
 
+```
 stock-sentiment-learning/
 ├── scripts/
-│ ├── fetch_prices.py
-│ ├── analyze_prices.py
+│   ├── fetch_stock_data.py
+│   ├── analyze_prices.py
+│
 ├── data/
-│ └── aapl_prices.csv
+│   ├── .gitkeep
+│   └── aapl_prices.csv
+│
+├── .venv/
 ├── .gitignore
-├── README.md
+├── requirements.txt
+└── README.md
+```
 
-yaml
-Copy code
+---
 
-### Folder Overview
+## Folder and File Responsibilities
 
-- **scripts/**  
-  Python scripts for fetching and analyzing data.  
-  Scripts are separated by responsibility to keep the workflow clear.
+### scripts/
+Contains Python scripts that perform a single, clear task.
+Scripts should be focused, readable, and runnable from the repository root.
 
-- **data/**  
-  Generated data files (CSV).  
-  These files are created by scripts and are not edited manually.
+### data/
+Stores generated data files such as CSVs.
+Data files are created by scripts and not edited manually.
+
+### .venv/
+Project-specific virtual environment.
+This directory is excluded from Git using `.gitignore`.
+
+### requirements.txt
+Lists Python dependencies required to run the project.
+Used to recreate the environment consistently.
 
 ---
 
 ## Setup Instructions
 
-### 1. Clone the repository
+### Create and activate a virtual environment
+
 ```bash
-git clone <repository-url>
-cd stock-sentiment-learning
-2. Create and activate a virtual environment
-bash
-Copy code
 python3 -m venv .venv
 source .venv/bin/activate
-3. Install dependencies
-bash
-Copy code
-pip install requests
-Scripts
-fetch_prices.py
-Fetches historical stock price data and saves it to a CSV file in the data/ directory.
+```
 
-Example usage:
+### Install dependencies
 
-bash
-Copy code
-python3 scripts/fetch_prices.py
-analyze_prices.py
-Reads the CSV file and prints a basic summary of the dataset, including:
+```bash
+pip install -r requirements.txt
+```
 
-Total number of rows
+### Run scripts
 
-First and last dates
-
-First and last closing prices
-
-Example usage:
-
-bash
-Copy code
+```bash
+python3 scripts/fetch_stock_data.py
 python3 scripts/analyze_prices.py
-Git Workflow
-Development is done locally in feature or experiment branches
+```
 
-Changes are committed with clear messages
+---
 
-Code is pushed only when working and reviewed
+## Git and Workflow Best Practices
 
-Data files may be excluded from version control depending on size or source
+- One virtual environment per project
+- Commit small, logical changes
+- Keep generated data separate from scripts
+- Use clear commit messages
+- Update documentation as the project evolves
 
-Learning Goals
-This project emphasizes:
+---
 
-Clean separation of concerns
+## Learning Focus
 
-Reproducible environments
-
-Incremental development
-
-Understanding how real-world data pipelines work
+This repository emphasizes:
+- Clarity over cleverness
+- Structure over speed
+- Understanding over automation
 
 Future steps may include:
+- Sentiment analysis
+- API rate-limit handling
+- Logging and error handling
+- Data visualization
 
-Text data
+---
 
-Sentiment analysis
+## Status
 
-API rate limits
-
-Error handling
-
-More advanced data processing
-
-Notes
-Python version: 3.x
-
-Tested on macOS
-
-This is a learning repository, not production code
+This is an active learning repository.
+Structure and contents may evolve over time.
