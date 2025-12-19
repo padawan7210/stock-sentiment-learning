@@ -1,6 +1,4 @@
+import requests
 
-with open("data/sample.txt", "r") as file:
-    lines = file.readlines()
-
-for line in lines:
-    print(line.strip())
+response = requests.get("https://example.com")
+print(response.status_code)
